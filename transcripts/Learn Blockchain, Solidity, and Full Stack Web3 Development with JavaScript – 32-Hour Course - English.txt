@@ -5806,7 +5806,7 @@ person with exactly what we just saw, like so now we don't even
 
 need the memory keyword.
 
-Now, you've probably seen this by now. But if I go ahead and compile, and I see a little, little red one here, I roll over. And it says something about error, expected semicolon, but got bracket, all these errors mean that your code isn't compiling. It's not working as expected. So now I can go over here and do a little semicolon recompile, and I get a green. Now if I delete this top line, for example, and I compile it, actually get a yellow thing. Yellow stands for warnings, the warning that I get is warning SPX license identifier, not provided, you should add it. So let's go ahead and add that back. recompile. And the warning goes away. Warnings Don't stop your code from compiling. So if you get warnings, it's okay. But it's usually a good idea to listen to the warnings, because often they'll give really insightful information about how to improve your smart contracts. So to summarize, if it's red, it's broken. If it's yellow, you might want to check it out. But it won't stop you from continuing to code.
+([02:46:35](https://www.youtube.com/watch?v=gyMwXuJrbJQ&t=9995s)): Basic Solidity - Memory, Storage & Calldata(Intro)
 
 So one thing that you'll notice here is that we have this memory keyword. And you'll notice if you try to delete it from our function here, you try to compile, you actually run into an error: Data location must be "memory" or "calldata" for parameter in function.
 
