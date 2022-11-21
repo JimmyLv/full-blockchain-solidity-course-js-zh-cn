@@ -1,28 +1,27 @@
-现在这个列表很棒，但是如果我们知道某人的名字，但是我们不知道他们最喜欢的号码呢？ 嗯，我们能做的就是翻遍整个阵列寻找那个人。
-例如，在我们的合同中。 我们可以说 OK 我在寻找
-约翰，好吧，让我们从零开始。 不，好吧，那是帕特里克，好吧，我们去一个。 好的。 那是约翰。 哦，太好了，他最喜欢的数字 16。
-嗯，这真的很容易，因为我们只有两个人。 但是如果我们有数百人在这个阵列中呢？
-嗯，我们必须一直迭代到那个人所在的索引。 这显然非常低效。
-存储这些信息的另一种方法是什么，这样可以更容易、更快地访问。
-我们可以使用的另一种数据结构是称为映射的东西，您可以将映射视为有点像字典。
-它是一组键，每个键返回与该键关联的某个值，我们创建一个映射变量的方式与创建所有其他变量的方式完全相同。
-所以这将是字符串到 uint256 的类型映射，这将是我们的类型和可见性关键字将是公共的。
-我们称之为 nameToFavoriteNumber，现在我们有了一个字典，每个名字都将映射到一个特定的数字。
-所以让我们为 addPerson() 函数添加一些功能，因此我们将把我们的人添加到我们的数组中。
-但是让我们也把它们添加到我们的映射中，我们要做的是说 nameToFavoriteNumber[_name] = \_favoriteNumber；
-所以让我们继续编译它。 我们将转到我们的部署屏幕将部署它。 点击。
-如果我输入帕特里克，我们有一个名为最喜欢的数字的新按钮。 什么都没出现。
-输入帕特里克，你会看到我没有回应。 通过输入约翰，我也得到零响应。 如果我输入贝卡。 我也得到零回应
-当您创建映射时，您将所有内容初始化为其空值。
-现在这个星球上的每一个可能的字符串都被初始化为最喜欢的数字为 0。
-如果我们想改变，那就必须进去手动添加，所以让我们继续在这里添加一个人到我们的映射中。
-所以我们会添加 Patrick 并保存我最喜欢的数字是 7，看起来交易确实完成了。
-我们还会加上贝卡，说她最喜欢的数字是 13。 约翰和威尔说他最喜欢的数字是 16。
-现在，如果我查帕特里克，我会立即得到帕特里克最喜欢的数字，我得到 7。
-如果我们去找约翰。 我们立即得到 16。 Becca 我们主要回到 13 岁
-我们也可以在我们的数组中看到它们，因为我们一直在这个人确实在推动。
-所以在零点，我们看到帕特里克在那里。 一点钟我们看到贝卡二点钟我们看到约翰
-在我们的映射中，我们说字符串名称被映射到 uint256 最喜欢的数字
+现在这个列表很棒，但如果我们知道某人的名字，但不知道他们最喜欢的号码，怎么办？那么，我们可以做的是，我们可以在整个数组中寻找那个人。
+例如，在我们的合约中。我们可以开始寻找 John，好吧，让我们从零开始。 不，好吧，那是 Patrick，好吧，让我们从 1 开始。 找到了 John。 哦，太好了，他最喜欢的数字是 16。
+这其实很容易，因为整个数组总共只有 2 个人。 但是如果总共有数百人在这个数组中呢？
+那么，我们就得一直迭代到那个人所在的索引。这显然是非常低效的。
+有什么其他的方法来存储这些信息，使其更容易和更快地访问呢？
+我们可以使用的另一种数据结构是一种叫做 mapping 映射的东西，你可以把映射想象成一种字典。
+它是一组键值对，每个 key 键返回与该键关联的某个 value 值，我们创建一个映射变量的方式与创建所有其他变量的方式完全相同。
+所以这会是从 string 到 uint256 的 mapping() 类型，这将是我们的类型，可见性关键字将是 public。
+我们把它叫做 nameToFavoriteNumber，现在我们有一个字典，每个名字都会映射到一个特定的数字。
+所以让我们给 addPerson() 函数添加一些能力，所以我们要把我们的人添加到我们的数组中。
+但我们也要把他们添加到我们的映射中，我们要做的是 nameToFavoriteNumber[_name] = \_favoriteNumber。
+因此，让我们继续编译它。我们将转到我们的部署页面将部署它。点击。
+我们有一个名为 favoriteNumber 的新按钮，如果我输入 Patrick。什么都没有显示出来。
+通过输入 Patrick，你会看到我没有得到回应。通过输入 John ，我也得到了零个回应。如果我输入 Becca。我也得到一个零回应。
+当你创建一个映射时，会把所有东西都初始化为空值。
+现在这里每一个可能的字符串都有一个对应的初始值 favoriteNumber 为 0。
+如果我们想改变这一点，就必须进去手动添加值，所以让我们继续在这里添加一个人到我们的映射中。
+所以我们将添加 Patrick，并保存最喜欢的号码是 7，看起来这个交易确实完成了。
+我们还将添加 Becca，说她最喜欢的号码是 13。 好吧，John 会说他最喜欢的号码是 16。
+现在，如果我查找 Patrick，我会立即得到 Patrick 最喜欢的数字，我得到 7。
+如果我们查找 John，我们马上得到的是 16。输入 Becca，我们会找到 13。
+而且我们还可以在我们的 people 数组中看到他们，因为我们会将 people 持续 push 进去。
+所以在索引为 0 时，我们看到 Patrick 在那里。在索引为 1 的地方，我们看到了 Becca，在 2 的地方我们看到了 John。
+在我们的 mapping 中，string 类型的 name 被映射到 uint256 类型的 favoriteNumber。
 我的很多变量，我喜欢让它们像这样显式命名，这是 nameToFavoriteNumber。
 
 ---
@@ -48,7 +47,7 @@ When you create a mapping you initialize everything to its null value.
 Every single possible string on the planet right now is initialized to having a favoriteNumber of 0.
 If we want to change that will have to go in and manually add that so let's go ahead and add a person to our mapping here.
 So we'll add Patrick and will save my favorite number is 7 and looks like that transaction did go through.
-We will also add Becca and will say her favorite number is 13. Well, John and will say his favorite number is 16.
+We will also add Becca and will say her favorite number is 13. Well, John will say his favorite number is 16.
 Now, if I look up Patrick I'll immediately get back with Patrick's favorite number is I get 7 back.
 If we look up John. We immediately get back 16. Becca we mainly get back to 13
 and we also can see them in our array because we kept in this people does push.
