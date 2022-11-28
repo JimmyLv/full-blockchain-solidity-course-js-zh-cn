@@ -9774,48 +9774,10 @@ and put the require here first. So this is how modifiers work,
 
 and how we can use them to improve our functionality.
 
+---
 
 
-
-We've completed all the basics of this section that I wanted to
-
-go through. And you should be incredibly proud of yourself for
-
-getting this far, you've just deployed a really advanced smart
-
-contract, we're using a library and chainlink contracts to build
-
-some of the most powerful applications in the planet,
-
-we've learned to use a library for any type we want in our
-
-smart contracts. We've learned more about multiplication, and
-
-then units of measure in solidity and smart contracts.
-
-We've learned about mappings more about arrays what the
-
-constructor does, we've learned how to send money we've learned
-
-about for loops, we've learned about the different ways we can
-
-actually send money, at least from a low level. And we've
-
-learned about modifiers. This section is one of the tougher
-
-sections in this course. So if you completed this, you should
-
-be incredibly excited. We're going to go through our code
-
-now. And we're going to make a number of tweaks. Now this
-
-section, we are going to do a little bit more advanced
-
-solidity here. So if you get a little bit lost, don't sweat it
-
-too much. And feel free to try some of this stuff in the future
-
-on your own. We're going to modify this contract to make it
+We're going to modify this contract to make it
 
 a little bit more professional. It's not going to be end to end
 
