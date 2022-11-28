@@ -10,4 +10,4 @@ sed \
  -e 's/ ether / Ether /g' \
  -r "$1" > "${output_filename}"
 
-webstorm "${output_filename}"
+prettier "${output_filename}" --write
