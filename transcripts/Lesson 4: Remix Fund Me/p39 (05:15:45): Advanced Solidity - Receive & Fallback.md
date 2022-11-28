@@ -2,13 +2,13 @@ Now let's look at one more way to improve this contract.
 现在让我们再看看改进这个合约的另一个方法
 
 Sometimes people will try to interact with the contract that
-有时人们会试图与采取 Ethereum
+有时人们会试图与 Ethereum
 
 takes Ethereum or the native blockchain token without
-或原生区块链代币的合约进行互动
+或原生区块链代币的智能合约进行交互
 
 actually going through the required function calls that
-而无需实际执行所需的函数调用
+而不去执行实际所需的函数调用
 
 that are needed. For example, on a JavaScript EVM here, I could
 例如，在这里的 JavaScript EVM 上，
@@ -17,13 +17,13 @@ actually try to send this contract money without calling
 我实际上可以尝试在不调用 fund 函数的情况下向这个合约发送资金
 
 the fund function. However, if I were to do that, what would
-然而，如果我这样做，我们的 fund 函数会被触发
+然而，如果我这样做的话，
 
 happen with our fund function get triggered? No, it wouldn't
-这时会发生什么？不，它不会被触发
+这时会对我们的 fund 函数产生什么作用吗？不，它不会被触发
 
 get triggered, we wouldn't keep track of that funder, we
-我们不会跟踪那个 funder
+我们将无法跟踪那个 funder
 
 wouldn't have that person's information updated in this
 我们不会在这个合约中更新那个人的信息
@@ -44,7 +44,7 @@ anything. Additionally, maybe they called the wrong function
 此外，也许他们意外地调用了错误的函数
 
 by accident, and they they weren't using MetaMask. And they
-他们没有使用 MetaMask
+比如他们没有使用 MetaMask 钱包，
 
 weren't using a tool to tell them, hey, this transaction is
 他们也没有使用一个工具来告诉他们，嘿，这个交易很可能会失败
@@ -113,13 +113,13 @@ soul. And in here, we're going to add our basic pieces, SPX
 在这里，我们要添加我们的基本部分，SPX 许可证标识符
 
 license identifier, MIT pragma, Solidity zero, point 8.7. And
-// SPDX-License-Identifier: MIT 和 Solidity 版本
+添加 // SPDX-License-Identifier: MIT 和 Solidity 版本
 
 we'll do contract fallback example, like so, feel free to
 我们将做合约回退的例子，就像这样 contract FallbackExample {}
 
 pause the video to catch up to this point. once we create our
-请随意暂停视频，敲代码赶上来
+请随意暂停视频，动手敲代码赶上我
 
 fallback contract, let's create a variable to go ahead and try
 一旦创建好了我们的 fallback 合约，让我们创建一个变量
@@ -251,7 +251,7 @@ data blank, we'll leave value at zero. So this will be the same
 让我们把 calldata 留空，我们把值留为 0
 
 as if we had sent zero Ethereum to this contract. Let's hit
-因此，这将与我们向该合约发送 0 以太坊的情况相同，点击交易
+因此，这将与我们向该合约发送 0 个 ETH 的情况相同，点击交易
 
 transact. It looks like that went through, do you think
 看起来已经通过了，你认为 result 会是 1 还是 0？
@@ -302,7 +302,7 @@ remix we actually get a pop up saying fallback function is not
 Remix 实际上会弹出一个窗口，说 'Fallback' function is not defined
 
 defined. This is because whenever data is sent with a
-这是因为每当数据与事务一起被发送时，
+这是因为每当数据与交易一起被发送时，
 
 transaction Solidity says, Oh, well, since you're sending data
 Solidity 会说，哦，好吧，既然你在发送数据，
@@ -317,13 +317,13 @@ don't see any function that matches the 0x 00. So I'm going
 嗯，我没有看到任何符合 0x00 的函数
 
 to look for your fallback function. Remix is smart enough
-所以我要去找你的 Fallback 函数
+所以我要去找你的 fallback 函数
 
 to know that we don't have a fallback function. The second
-Remix 很聪明，知道我们没有 Fallback 函数
+Remix 很聪明，知道我们没有 fallback 函数
 
 special function in Solidity is called the fallback function.
-Solidity 中的第二个特殊函数被称为 Fallback 函数
+Solidity 中的第二个特殊函数被称为 fallback 函数
 
 This is very similar to the receive function, except for the
 它与 receive 函数非常相似，不同的是，
@@ -332,10 +332,10 @@ fact that can work even when data is sent along with
 即使数据与交易一起被发送，它也能发挥作用
 
 transaction. So our fallback will look something like this
-因此，我们的 Fallback 函数将看起来像这样的回调 fallback() external payable{}
+因此，我们的 fallback 函数将看起来像这样的回调 fallback() external payable{}
 
 fallback external payable. result equals two. Fallback is another one of
-result = 2; Fallback 是这些函数中的另一个
+result = 2; fallback 是这些函数中的另一个
 
 these functions where we're not going to put the function
 我们不打算把函数选择器放在这里
@@ -344,7 +344,7 @@ selector because Solidity is expecting this, actually, you're
 因为 Solidity 正在期待这个
 
 already familiar with one other special function, we go back to
-实际上，你已经熟悉了另外一个特殊的函数，我们回到我们的 FundMe
+实际上，你已经熟悉了另外一个特殊的函数，我们回到我们的 FundMe 合约
 
 our FundMe. Our constructor, for example, is a another type of
 例如，我们的构造函数，是另一种类型的特殊函数
@@ -356,7 +356,7 @@ that this constructor is immediately called when we
 Solidity 知道，当我们部署这个合约时，这个构造函数会被立即调用
 
 deploy this contract. So now we have our fallback function.
-所以现在我们有了我们的 Fallback 函数
+所以现在我们有了我们的 fallback 函数
 
 Let's go ahead and compile this. Let's delete our old contract.
 让我们继续并编译这个，删除我们的旧合约
@@ -377,7 +377,7 @@ contract goes, Huh, I don't recognize what you're trying to
 所以我们的合约会说："哼，我不知道你想告诉我什么，
 
 tell me here, I'm going to refer you to our fallback. And now if
-我要把你转到我们的 Fallback 程序"
+我要把你转到我们的 fallback 程序"
 
 we hit result, we see that it's been updated to two. If we take
 现在，如果我们点击 result，我们看到它已经被更新为 2
@@ -416,10 +416,10 @@ function. If it is data, and there's no receive function,
 如果它是数据，并且没有 receive 函数，
 
 it'll just go to the fallback function. And if there's no
-它就会去调用 Fallback 函数
+它就会去调用 fallback 函数
 
 fallback function, it might just it might air out. So this is a
-如果没有 Fallback 函数，它可能就会抛出 error
+如果没有 fallback 函数，它可能就会抛出 error
 
 lot of really fantastic information here. How can we
 因此，这里有很多非常棒的信息
@@ -560,7 +560,7 @@ It looks like it was at the zero with position of funders, we
 看起来它是在 0 的位置上，我们有我们的地址
 
 have our address. And if we take our address and pop it into
-如果我们把我们的地址放到地址和资金量之间，
+如果我们把我们的地址放到地址和资金数量之间，
 
 address to amount funded, we can see exactly how much we had
 我们就可以看到我们到底有多少资金
