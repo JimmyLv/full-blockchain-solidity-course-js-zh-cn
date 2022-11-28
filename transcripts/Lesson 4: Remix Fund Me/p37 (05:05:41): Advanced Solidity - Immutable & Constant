@@ -1,0 +1,349 @@
+We're going to modify this contract to make it
+
+
+a little bit more professional. It's not going to be end to end
+
+
+amazing, but it's going to be a little bit better. And you'll
+
+
+see why in a minute. So the first thing that we're going to
+
+
+do is we're looking we're going to look at some of these
+
+
+variables here. In particular owner and minimum USD, owner
+
+
+gets set one time in our contract here. And then it never
+
+
+changes. Again, minimum USD gets set one time, even outside of
+
+
+the constructor. If we have variables that only get set one
+
+
+time, we can actually use some tools in solidity to make them
+
+
+more gas efficient. For now let's compile our Funmi
+
+
+contract, and then deploy it to a JavaScript virtual machine.
+
+
+Remember, we can go ahead and deploy it right now. However,
+
+
+funding and withdrawing and doing in the money stuff isn't
+
+
+going to work. Because again, we don't have a chain link network
+
+
+on our JavaScript VM. So those aren't going to work so well.
+
+
+But for what we're gonna do right now, we don't really care
+
+
+so much. Here's what we do care about. You do care about how
+
+
+much gas this costs to actually send. We do care about how much
+
+
+gas is costs to create right now creating this contract costs
+
+
+about 859,000 gas and we're going to Add a couple of tricks.
+
+
+Right now to bring this number down, we're going to add some
+
+
+stuff back in in the bid, which will bring it back up. But for
+
+
+now, we're going to learn some tricks to bring this number
+
+
+down. The two tricks that we're going to learn are the constant
+
+
+keyword and the immutable keyword, in their solidity.
+
+
+There are two keywords that make it so that your variables can't
+
+
+be changed. And those keywords are constant and immutable. You
+
+
+can learn more about them in the solidity documentation, if you
+
+
+assign a variable once outside of a function, and then never
+
+
+change it, so if if it's assigned at compile time, you
+
+
+can go ahead and add this constant keyword. We'll learn
+
+
+later about storage. But when you add a constant keyword, this
+
+
+minimum USD no longer takes up a storage spot, and is much easier
+
+
+to read too. So now we recompile this, and we deploy this new
+
+
+contract. Let's see if we saved any gas. We look in the
+
+
+transaction logs, now, we can grab the transaction cost of how
+
+
+much this cost to deploy, let's compare it to how much it was
+
+
+before. Well, we saved almost 19,000 gas, that's almost as
+
+
+much gas as a cost to send Aetherium. Typically, constant
+
+
+variables have a different naming convention. Typically,
+
+
+you'll want to do them all caps like Min imaam. Underscore, who
+
+
+is the CIO all caps with underscores. So now let's just
+
+
+find minimum use D, and replace that with all caps as well. With
+
+
+this interaction, we know that this variable is a constant
+
+
+variable, and it's much cheaper to read from now, if we go ahead
+
+
+and compile this and redeploy. In our Funmi contract, even
+
+
+though this is a view function, remember, view functions do have
+
+
+gas costs when when called by contract as a constant variable,
+
+
+we can see the execution cost of this variable 21,415 gas. So
+
+
+let's put a little note rather Nathan.
+
+
+If we remove the constant variable, we delete this
+
+
+contract. And we redeploy, like Funmi. And we hit minimum ust
+
+
+again, we can now see how much gas this was cost. If it wasn't
+
+
+a constant variable, we can see the gas cost did indeed go up.
+
+
+Now on chains that are much cheaper, this gas difference
+
+
+probably won't make that much of a difference. But on more
+
+
+expensive chains like Aetherium, this is going to make a big
+
+
+difference. For example, on Aetherium, we can actually see
+
+
+current gas prices on Aetherium. Here, we can see the current gas
+
+
+price of Aetherium is about 141 way, so we'll go to our
+
+
+converter, way to way we'll copy the way price times this will
+
+
+get the gas price of calling our minimum USD, which is this
+
+
+number here, which if we put back in our Aetherium
+
+
+uniconverter, we can see cost this much gas. And if we times
+
+
+that by the approximate current price of Aetherium, which is
+
+
+around $3,000. Calling minimum use D as a constant is going to
+
+
+cost $9 on the inside is at a nonconstant is going to cost
+
+
+almost an entire dollar more, you can see how all these little
+
+
+gas optimization tricks are going to make your life a lot
+
+
+better. So let's keep this constant keyword in here. We'll
+
+
+learn more about constant and storage in later sections of
+
+
+this course. Now, as you're just getting started with this
+
+
+course, and with slip the Do not struggle. And do not worry about
+
+
+making your contracts as gas efficient as possible in the
+
+
+beginning, and especially right now. Just write your contracts
+
+
+as best as you can. Once you get really good at gas. And once you
+
+
+get much later on in the course, and much more advanced with
+
+
+solidity, then you can start going back and working on gas
+
+
+optimizations. But do not let gas optimizations hold you back.
+
+
+Or if you start stressing over it, just let it go. Don't worry
+
+
+about it and just write your code as best you can. So long
+
+
+story short, Do not stress about gas optimizations right now. Now
+
+
+another variable we only set one time is going to be our owner
+
+
+variable. Owner equals message dot sender. We set this one time
+
+
+in the constructor variables that we set one time but outside
+
+
+of the same line that they're declared. And we set them for
+
+
+example, in the constructor, we can mark as a mutable typically
+
+
+a good convention for marking immutable variables is going to
+
+
+be doing I underscore so that we know that these are immutable
+
+
+variables, they have very similar gas savings to the
+
+
+constant keyword. Owner, of course, is a variable that we
+
+
+can't set on the line here because inside the global scope,
+
+
+there's no function going on. However, inside functions,
+
+
+because inside the global scope, there's going to be no message
+
+
+that sender, there's only going to be a message dot sender when
+
+
+we're inside of a function. So inside here, we might say I
+
+
+owner equals message dot sender. And then of course, we'll scroll
+
+
+down and we'll change this require only owner now equals i
+
+
+owner. Now if we compile that deploy up, we can see how much
+
+
+gas we can see how much gas calling I owner is going to be
+
+
+by with immutable notice, we get 21,508, which we'll go ahead and
+
+
+copy for now. And we'll put right here, we'll say,
+
+
+immutable. Now, if we remove the immutable keyword, let's close
+
+
+this redeploy. If we scroll down to I owner, screw up the logs,
+
+
+we go down to the call, scroll down, we see the execution cost
+
+
+was much more. So we'll do the backslash, a seven here, yes, or
+
+
+non immutable. So you want to keep some of these tricks in
+
+
+mind, when it comes to storing variables. The reason that these
+
+
+two save gas is because instead of storing these variables
+
+
+inside of a storage slot, we actually store them directly
+
+
+into the bytecode of the contract. And like I said, don't
+
+
+worry too much about that for now, later on in the course,
+
+
+we'll teach you more about storage and a lot of this low
+
+
+level stuff that comes to these contracts. But for now, just
+
+
+know that these exist. And they're nice gas savers, if
+
+
+you're only setting your variables once.
