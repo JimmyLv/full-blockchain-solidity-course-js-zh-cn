@@ -9,9 +9,12 @@ sed \
  -e 's/chain link|chainlink/Chainlink/g' \
  -e 's/Aetherium/Ethereum/g' \
  -e 's/ ether/ Ether/g' \
- -e 's/Funmi/FundMe/g' \
+ -e 's/eath/ETH/g' \
+ -e 's/Ether scan/Etherscan/g' \
+ -e 's/Funmi|Fundmi/FundMe/g' \
+ -e 's/fun function/fund function/g' \
  -e 's/合同/合约/g' \
- -e 's/Metamask/MetaMask/g' \
+ -e 's/Metamask|meta mask/MetaMask/g' \
  -r "$1" > "${output_filename}"
 
 #prettier "${output_filename}" --write
