@@ -6,8 +6,10 @@ output_filename="outputs/$1"
 
 sed \
  -e 's/solidity/Solidity/g' \
+ -e 's/chain link|chainlink/Chainlink/g' \
  -e 's/Aetherium/Ethereum/g' \
- -e 's/ ether / Ether /g' \
+ -e 's/ ether/ Ether/g' \
+ -e 's/Funmi/FundMe/g' \
  -r "$1" > "${output_filename}"
 
-prettier "${output_filename}" --write
+#prettier "${output_filename}" --write

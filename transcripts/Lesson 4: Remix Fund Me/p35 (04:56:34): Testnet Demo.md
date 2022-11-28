@@ -206,7 +206,7 @@ exactly what we'd expect. Awesome. So our funding
 这正是我们所期望的，真棒
 
 mechanism is working correctly. And if we go down into our
-所以我们的资助机制正在正常工作
+所以我们的 FundMe 机制正在正常工作
 
 array, and our mapping
 如果我们进入我们的数组，和我们的映射做地址到数组
