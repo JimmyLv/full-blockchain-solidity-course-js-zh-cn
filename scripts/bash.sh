@@ -10,6 +10,7 @@ sed \
  -e 's/Aetherium/Ethereum/g' \
  -e 's/ ether/ Ether/g' \
  -e 's/Funmi/FundMe/g' \
+ -e 's/合同/合约/g' \
  -r "$1" > "${output_filename}"
 
 #prettier "${output_filename}" --write
