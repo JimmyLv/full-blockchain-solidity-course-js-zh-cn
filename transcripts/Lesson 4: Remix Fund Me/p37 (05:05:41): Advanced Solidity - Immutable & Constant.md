@@ -32,7 +32,7 @@ more gas efficient. For now let's compile our funding
 现在让我们来编译我们的 FundMe 合约
 
 contract, and then deploy it to a JavaScript virtual machine.
-然后把它部署到 JavaScript 虚拟机上
+然后把它部署到 JavaScript VM 上
 
 Remember, we can go ahead and deploy it right now. However,
 记住，我们现在就可以去部署它
@@ -41,7 +41,7 @@ funding and withdrawing and doing in the money stuff isn't
 然而，fund 筹资和 withdraw 提款以及操作款项是不行的
 
 going to work. Because again, we don't have a Chainlink network
-因为我们的 JavaScript 虚拟机上没有 Chainlink 网络
+因为我们的 JavaScript VM 上没有 Chainlink 网络
 
 on our JavaScript VM. So those aren't going to work so well.
 这些都不能很好地生效
@@ -56,7 +56,7 @@ much gas this costs to actually send. We do care about how much
 你会需要关心这要花多少 Gas 才能真正发送
 
 gas is costs to create right now creating this contract costs
-需要关心的是，现在创建这个合约的成本约为 85.9 万 Gas
+需要关心的是，现在创建这个合约的成本约为 859,757 Gas
 
 about 859,000 gas and we're going to Add a couple of tricks.
 我们将添加一些技巧
@@ -92,7 +92,7 @@ change it, so if if it's assigned at compile time, you
 那么如果它是在编译时分配的
 
 can go ahead and add this constant keyword. We'll learn
-你就可以继续添加这个 constant 关键字。我们还将在后面学习存储时的知识
+你就可以继续添加这个 constant 关键字。我们还将在后面学习 storage 的知识
 
 later about storage. But when you add a constant keyword, this
 当你添加一个 constant 关键字时，这个 minimumUsd 不再占用一个存储空间
@@ -107,7 +107,7 @@ contract. Let's see if we saved any gas. We look in the
 让我们看看我们是否节省了任何 Gas
 
 transaction logs, now, we can grab the transaction cost of how
-我们看一下交易日志，现在，我们可以找到交易成本
+我们看一下交易 logs ，现在，我们可以找到交易成本
 
 much this cost to deploy, let's compare it to how much it was
 即部署这个合约的成本是多少，让我们把它与之前的成本进行比较
@@ -116,7 +116,7 @@ before. Well, we saved almost 19,000 gas, that's almost as
 好吧，我们节省了将近 19000 个 Gas
 
 much gas as a cost to send Ethereum. Typically, constant
-这几乎和只发送 Ethereum 的成本一样多的 Gas
+这就跟只发送以太币是一样的 Gas 成本
 
 variables have a different naming convention. Typically,
 通常情况下，常量变量有不同的命名规则
@@ -140,7 +140,7 @@ and compile this and redeploy. In our funding contract, even
 在我们的 FundMe 合约中，尽管这是一个 view 函数
 
 though this is a view function, remember, view functions do have
-记住，当 view 函数被合约作为一个恒定变量调用时
+记住，当 view 函数被合约作为一个 constant 变量调用时
 
 gas costs when when called by contract as a constant variable,
 确实是会产生 Gas 成本的
@@ -161,7 +161,7 @@ again, we can now see how much gas this was cost. If it wasn't
 我们再看一下 MINIMUM_USD，可以看到现在的成本是多少 Gas
 
 a constant variable, we can see the gas cost did indeed go up.
-当它不再是一个恒定变量，我们可以看到 Gas 成本确实上升了
+当它不再是一个 constant 变量，我们可以看到 Gas 成本确实上升了
 
 Now unchanged that are much cheaper, this gas difference
 现在之前不变的那个，则会便宜更多
@@ -170,13 +170,13 @@ probably won't make that much of a difference. But on more
 这种 Gas 的差异可能不会有太大的影响
 
 expensive chains like Ethereum, this is going to make a big
-但是在像以太坊这样更昂贵的链上，这将会产生很大的差异
+但是在像以太坊网络这样更昂贵的链上，这将会产生很大的差异
 
 difference. For example, on Ethereum, we can actually see
-例如，在以太坊上，我们实际上可以看到以太坊上当前的 Gas 价格
+例如，在以太坊网络上，我们可以看到当前的 Gas 价格
 
 current gas prices on Ethereum. Here, we can see the current gas
-在这里，我们可以看到目前以太坊的 Gas 价格大约是 141 gwei
+在这里，目前以太坊的 Gas 价格大约是 141 gwei
 
 price of Ethereum is about 141 gwei, so we'll go to our
 所以我们将去我们的转换器
@@ -224,7 +224,7 @@ making your contracts as gas efficient as possible in the
 不要挣扎，也不要过于担心在开始的时候
 
 beginning, and especially right now. Just write your contracts
-尤其是现在，就想让你的合约尽可能的尽可能地节约 Gas
+尤其是现在，就想要让你的合约尽可能地节约 Gas
 
 as best as you can. Once you get really good at gas. And once you
 现在只要尽可能地写好你的合约就可以了。只要你真的变得很擅长使用 Gas，
@@ -254,7 +254,7 @@ variable. Owner equals message dot sender. We set this one time
 owner = msg.sender; 我们在构造函数变量中设置过一次
 
 in the constructor. Variables that we set one time but outside
-这些我们一次性设置的变量，是在它们被声明的同一行以外
+这些被一次性设置的变量，但在被声明的同一行之外
 
 of the same line that they're declared. And we set them for
 如果我们在构造函数中设置它们，
@@ -263,7 +263,7 @@ example, in the constructor, we can mark as immutable typically
 我们可以将其标记为 immutable 不可变的
 
 a good convention for marking immutable variables is going to
-通常标记 immutable 变量的一个很好的约定是使用 i_owner （i+下划线+变量名）
+通常，一个好的 immutable 变量命名约定，是使用 i_owner （i+下划线+变量名）
 
 be doing i_underscore so that we know that these are immutable
 这样我们就知道这些都是不可变的变量
@@ -293,13 +293,13 @@ owner equals message dot sender. And then of course, we'll scroll
 当然，让我们向下滚动
 
 down and we'll change this require only owner now equals i
-我们会改变这个 require() 的 onlyOwner 变成 i_owner
+我们会改变 onlyOwner 里面 require() 的变量修改为 i_owner
 
 owner. Now if we compile that deploy up, we can see how much
 现在，如果我们把它编译部署起来，我们可以看到有多少 Gas
 
 gas we can see how much gas calling i_owner is going to be
-我们可以看到调用 i_owner 使用的是 immutable 的通知
+我们可以看到调用 i_owner 使用的是 immutable
 
 by with immutable notice, we get 21,508, which we'll go ahead and
 我们得到 21,508，我们现在就去复制这个
@@ -317,7 +317,7 @@ we go down to the call, scroll down, we see the execution cost
 向下滚动，我们看到执行成本高了很多
 
 was much more. So we'll do the backslash, a seven here, yes, or
-所以我们要做斜杠，使用 non-immutable 标记一下
+让我们用 non-immutable 标记一下
 
 non immutable. So you want to keep some of these tricks in
 所以你要记住其中的一些技巧
@@ -338,13 +338,13 @@ worry too much about that for now, later on in the course,
 现在不要太担心这个问题，在课程的后面
 
 we'll teach you more about storage and a lot of this low
-我们会教你更多关于存储和合约的很多低级别的内容
+我们会教你更多关于存储和合约的底层知识
 
 level stuff that comes to these contracts. But for now, just
-但现在，只需知道这些存在
+但现在，只需知道这些的存在就好
 
 know that these exist. And they're nice gas savers, if
-如果你只设置一次变量，
+如果你可以将变量仅设置一次，
 
 you're only setting your variables once.
-它们会是很好的节省 Gas 的方式
+这就是很好的节省 Gas 的方式了

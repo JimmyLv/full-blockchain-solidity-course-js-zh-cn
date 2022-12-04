@@ -20,7 +20,7 @@ injected web three, because our price converter dot soul is
 记住，但我们使用的是 Injected Web3，因为我们用的 PriceConverter.sol 使用的是
 
 using chainlink Oracle's that actually exist and are actually
-使用的是 Chainlink Oracle
+使用的是 Chainlink 预言机
 
 monitoring the Rinkeby network for us. Now we're going to
 它的存在是为了我们监控 Rinkeby 网络
